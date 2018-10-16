@@ -1,0 +1,10 @@
+/Lähteet
+.vscode
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.log
+*.pdf
+*.xml
+*.gz

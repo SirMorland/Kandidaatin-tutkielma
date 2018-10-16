@@ -1,0 +1,112 @@
+%*********************** 
+%     META
+%***********************
+
+\documentclass[a4paper,12pt,final,twoside]{report}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[finnish]{babel}
+\usepackage{url}
+
+% Fontti
+\usepackage{times}
+\linespread{1.3}
+\usepackage[margin=2.5cm]{geometry}
+
+% Lähdeviitteet
+\usepackage[authordate,backend=biber,noibid]{biblatex-chicago}
+\addbibresource{Lahteet.bib}
+
+% Kuvat
+\usepackage{graphicx}
+
+% Otsikkojen tyylit
+\makeatletter
+	\renewcommand\chapter{\@startsection{chapter}{1}{\z@}
+		{-28pt}
+		{28pt}
+		{\fontsize{14pt}{14pt}\selectfont}
+	}
+	\renewcommand\section{\@startsection{section}{2}{\z@}
+		{-14 pt}
+		{14pt}
+		{\small\bfseries}
+	}
+	\renewcommand\subsubsection{\@startsection{subsubsection}{2}{\z@}
+		{-7pt}
+		{7pt}
+		{\small\it}
+	}
+\makeatother
+
+%*********************** 
+%     Teksti
+%*********************** 
+
+\begin{document}
+
+% Kansilehti
+
+\title{Reaaliaikaisesti renderöidyn vekorigrafiikan käyttö videopeleissä}
+\date{\today}
+\author{Ville Helppolainen}
+\def\contactinformation{\texttt{vivakank@student.jyu.fi}}
+\def\university{Jyväskylän yliopisto}
+\def\department{Informaatioteknologian tiedekunta}
+\def\subject{Tutkimussuunnitelma}
+\def\type{TIEA301 Kandidaattiseminaari}
+
+% Kansilehden rakenne
+
+\makeatletter
+	\begin{titlepage}
+		\thispagestyle{empty}
+
+		\vspace*{6truecm} 									% Tyhjää alkuun
+
+		\centerline{\bf \@author}							% Tekijä
+		\centerline{\contactinformation}					% Sähköposti
+
+		\vspace{2truecm}									% Tyhjää väliin
+		
+		{\Large\bf \parbox{\textwidth}{\centering \@title}}	% Otsikko
+
+		\vspace{4truecm}									% Tyhjää väliin
+		
+		{\parindent7truecm\parskip0pt
+			\subject \par									% Aihe
+			\type \par										% Kurssi
+			\@date \par										% Päivämäärä
+		}
+
+		\vfill
+		\centerline{\large\bf \university}					% Yliopisto
+		\centerline{\bf \department}						% Tiedekunta
+	\end{titlepage}
+\makeatother
+
+\pagebreak
+
+% Sivunumerot
+
+\setcounter{page}{1}
+
+% Kappaleet
+
+\chapter{Johdanto}
+
+\chapter{Kirjallisuuskartoitus}
+
+\chapter{Tutkimusaihe/tutkimuskysymys}
+
+\chapter{Tutkimusstrategia/metodi ja sen valinta}
+
+\chapter{Johtopäätökset}
+
+% Lähdeluettelo
+
+\printbibliography
+
+\end{document}
