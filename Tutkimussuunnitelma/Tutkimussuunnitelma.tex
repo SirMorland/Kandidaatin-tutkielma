@@ -49,7 +49,7 @@
 
 % Kansilehti
 
-\title{Reaaliaikaisesti renderöidyn vekorigrafiikan käyttö videopeleissä}
+\title{Reaaliaikaisesti renderöidyn vektorigrafiikan käyttö videopeleissä}
 \date{\today}
 \author{Ville Helppolainen}
 \def\contactinformation{\texttt{vivakank@student.jyu.fi}}
@@ -97,13 +97,31 @@
 
 \chapter{Johdanto}
 
+Vektorigrafiikalla saa tehtyä resoluutioriippumattomia kuvia ja sulavia animaatioita. Pelejä pelataan hyvin erikokoisilla ja -tarkkuuksisilla näytöillä, joten skaalautuvat grafiikat luulisi sopivan niihin erittäin hyvin. Silti olen törmännyt vain yhteen peliin, joka ehkä käyttää reaaliajassa renderöityjä vektorigrafiikoita. Onko olemassa muita tällaisia pelejä? Miksei vektorigrafiikka ole laajemmin käytössä videopeleissä?
+
+Vektorigrafiikoiden käyttö tietyn tyyppisissä peleissä voisi pienentää tiedostokokoa merkittävästi, mahdollistaa loputtoman tarkat kuvat ja animaatiot ilman mitään lisäkustannuksia. Pelin kohdentaminen eri tarkkuuksisille näytöille olisi vaivatonta eikä spritejen skaalauksesta tulevia virheitä esiintyisi.
+
 \chapter{Kirjallisuuskartoitus}
+
+Vektorigrafiikkaa ja videopelejä yhdistävää kirjallisuutta ei virtuaalisesti ole olemassa, vaikka molemmat aiheet ovatkin itsessään melko tutkittuja. Päätietokantanani käyttämästä ACM Digital Librarysta hakemalla tiivistelmistä sanoja "vector graphics games"  löytyy reilu kymmenkunta osumaa joista yhden olen pystynyt valitsemaan tutkielmaan lähteeksi \parencite{RefWorks:doc:5bc4a5cde4b0f79042082292}, joskin sekään ei keskity videopeleihin vaan yleisesti vektorigrafiikoiden etuihin ja tulostamiseen.
+
+Niinpä keskitänkin haun yleisesti vektorigrafiikan reaaliaikaiseen renderöintiin, josta tärkeimpänä lähteenä \textcite{RefWorks:doc:5bc4a5cce4b080e02f7eff1b}. Teoksessaan he esittelevät näytönohjaimella tapahtuvaa laitteistopohjaista kiihdytystä vektorigrafiikoiden esittämiseen, joka mahdollistaa reilusti yli 60 ruutuvirkistystä sekunnissa (fps), jota yleensä peleissä vaaditaan vähimmäisrajana.
+
+\textcite{RefWorks:doc:5bc4a5cbe4b0af09f17dfdc1} esittelee tapaa piirtää äärettömän tarkkoja tekstejä ja kuvia reaaliajassa 3D ympäristöön. Lopuksi vielä pari backward searchilla löytynyttä artikkelia tehokkaista vektorigrafiikanpiirtoalgoritmeista \parencites{RefWorks:doc:5bc4a5cbe4b095ca6e593f15}{RefWorks:doc:5bc4a5cbe4b067d1d7447f29}.
 
 \chapter{Tutkimusaihe/tutkimuskysymys}
 
+Tutkielmassa pyrin selvittämään mitä hyötyä ja haittaa vektorigrafiikoiden käytössä olisi videopeleissä. Vertailen vektorigrafiikan ominaisuuksia perinteiseen rasterigrafiikkaan ja sivuan myös hieman 3D grafiikoiden esittämistä.
+
 \chapter{Tutkimusstrategia/metodi ja sen valinta}
 
+Kanditutkielman metodi on kirjallisuuskatsaus.
+
 \chapter{Johtopäätökset}
+
+Erityisesti tähän aiheeseen liittyvän materiaalin puute aiheuttanee sen, että sitä voi olla hankala rajata kovin suppeaksi. Pääpointtina pidän vektorigrafiikoiden etujen ja haittojen analysointia, mutta jos siitä ei saa kirjoitettua tarpeeksi, voi tutkielmaa helposti laajentaa kertomalla myös esimerkiksi vektorigrafiikoiden historiasta peleissä.
+
+Oletan tutkielman tulokseksi että lisää tutkimusta/näyttöä eduista tarvitaan, jolloin voin jatkaa aihetta pro gradu -tutkielmaan ja mahdollisesti toteuttaa jonkin näköisen proof-of-conceptin.
 
 % Lähdeluettelo
 
