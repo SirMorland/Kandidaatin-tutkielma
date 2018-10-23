@@ -8,3 +8,7 @@
 *.pdf
 *.xml
 *.gz
+*.lof
+*.lot
+*.out
+*.toc
