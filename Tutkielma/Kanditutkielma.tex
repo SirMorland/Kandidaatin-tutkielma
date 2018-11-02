@@ -1,6 +1,7 @@
 % TIETOTEKNIIKAN KANDIDAATINTUTKIELMA
 \documentclass[utf8,bachelor]{gradu3}
 \usepackage[bookmarksopen,bookmarksnumbered,linktocpage]{hyperref}
+\usepackage{graphicx}
 \addbibresource{Lahteet.bib}
 
 % META
@@ -33,27 +34,78 @@
 
 \chapter{Johdanto}
 
+Videopelejä pelataan nykyään monilla erikokoisilla ja -resoluutioisilla näytöillä. Esimerkiksi Bethesda Softworksin julkaisema Fallout Shelter -peli on saatavilla älypuhelimille, tietokoneille ja pelikonsoleille \parencite{RefWorks:doc:5bd6d887e4b0a1f99c62e6de}. Käyttäessä perinteistä bittikarttagrafiikkaa kehittäjien täytyy tehdä kompromisseja kohdentaessaan pelejään eri tarkkuuksisille näytöille. Vaihtoehtoja ovat kuvan venyttäminen eri kokoihin, mikä tuottaa epätarkkoja tai pikselöityneitä kuvia, tai monen eri kokoisen kuvan tekeminen, mikä lisää työmäärä ja lopullisen pelin tiedostokokoa. \parencite{RefWorks:doc:5bd8319de4b03ae5c9b276b8}
+
+Vektorigrafiikka on ratkaisu näihin ongelmiin. Se sallii kuvan venyttämisen eri kokoiseksi ilman laadun kärsimistä. Vektorigrafiikkatiedosto, kuten SVG, on usein paljon pienempi kooltaan kuin bittikarttatiedosto, kuten PNG.Kuviosta \ref{vertailu} voi huomata, että jos kuvan haluaa esittää skaalattuna alimman rivin kokoiseksi, vasta 512x512 pikselin -versiossa on tarpeeksi resoluutiota, eikä se näytä epäselvältä, toisin kuin sitä pienemmät versiot. 512x512 pikselin -version tiedostokoko on kuitenkin yli kaksinkertainen suhteessa alkuperäisen SVG-kuvan tiedostokokoon, ja jos kehittäjä haluaa pelin tukevan kaikkia kuviossa mainittuja resoluutioita tulee yhteenlasketuksi tiedostokooksi 612 kilotavua, yhdeksän kertaa alkuperäisen SVG-kuvan tiedostokoko.
+
+SVG-tiedosto tukee myös animointia, ja yhdessä tiedostossa voi olla monta animaatiota \parencite{RefWorks:doc:5bd74719e4b0e42e08f6333b}. Tällä tavalla esimerkiksi pelihahmolle saa samaan tiedostoon toimeton-, juoksu- ja hyppyanimaation. Vektorigrafiikan renderöinti on perinteisesti ollut hidasta, eikä sitä ole voitu suorittaa tarpeeksi nopeasti sulavan liikkeen aikaansaamiseksi. Nykyiset teknologiat ja laitteistot kuitenkin mahdollistavat vektorikuvien esittämisen huomattavasti aiempaa nopeammin. Vektorikuvia on myös mahdollista esittää 3D-gafiikan seassa. \parencite{RefWorks:doc:5bc4a5cce4b080e02f7eff1b} Kysymykseksi jääkin, miksei reaaliajassa renderöidyn vektorigrafiikan käyttö videopeleissä ole yleistynyt, vaikka teknologia sen sallii.
+
+Tässä kandidaatintutkielmassa tutkin vektorigrafiikoiden käyttöä videopeleissä kirjallisuuskatsauksen metodein. Pohdin vektorigrafiikoiden etuja ja haittoja verrattuna bittikarttagrafiikoihin 2D-pelien kontekstissa, mutta myös 3D-objektien teksturointia sivuten. Teen myös katsauksen peleissä käytetyn vektorigrafiikan historiasta, nykytilasta ja mahdollisista tulevaisuuden näkymistä.
+
+\begin{figure}[!b]
+	\centering
+	\includegraphics[width=1.0\textwidth]{Ghostscript_Tiger_Comparison.pdf}
+    \caption{SVG-kuvan ja erikokoisten PNG-kuvien vertailua. Ylemmällä rivillä on alkuperäinen kuva ja alemmalla suurennos yksityiskohdasta.}\label{vertailu}
+\end{figure}
+
 \chapter{Vektorigrafiikka}
 
-\section{Reaaliaikainen vektorigrafiikan renderöinti}
+\section{Vektorigrafiikat ja niiden käyttö}
 
-\section{Vektorigrafiikan ja rasterigrafiikan eduista ja haitoista}
+% - Määrittely
+% - Ominaisuudet
+% - Käyttökohteet
+%     * Nettisivut
+%     * Logot
+%     * Tulostus
+%     * Pohjapiirustukset
+%     * Pelien assetit
+%         ~ Banner Saga
+%         ~ Guacamelee
+%         ~ Scribblenauts
+
+\section{Vektorigrafiikan ja bittikarttagrafiikan eduista ja haitoista}
+
+% - Level of Detail
+% - Renderöinti
+% - Tiedostokoko
+% - Muokkaus
+% - Animointi
 
 \chapter{Vektorigrafiikat videopeleissä}
 
 \section{Vektorigrafiikan historia peleissä}
 
+% - Oikeat vektoripelit
+% - Flash-selainpelit
+
 \section{Vektorigrafiikan nykytila peleissä}
 
+% - Banner Saga
+% - Guacamelee
+% - Scribblenauts
+% - TF2
+
 \section{Ongelmia vektorigrafiikan käytössä}
+
+% - Ei virallista engine tukea
+% - "Rajoittunut" tyyli
 
 \chapter{Pohdintaa vektorigrafiikoiden tulevaisuudesta}
 
 \section{Selainpelit}
 
+% - Selaimessa toimivien sovellusten kasvu
+% - Suora tuki SVG:lle ja animaatioille
+
 \section{Vektorigrafiikka 3D-kappaleiden tekstuureissa}
 
+% - Supertekstuurit
+% - TF2
+
 \chapter{Yhteenveto}
+
+% - Tarvitaan esimerkki proto
 
 \printbibliography
 
