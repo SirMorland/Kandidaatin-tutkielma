@@ -20,7 +20,7 @@
     Englanninkielinen versio tiivistelmästä.
 }
 
-\author{Ville Kankaanpää}
+\author{Ville Helppolainen}
 \contactinformation{\texttt{vivakank@student.jyu.fi}}
 %\supervisor{}
 
@@ -50,7 +50,7 @@ Tässä kandidaatintutkielmassa tutkin vektorigrafiikoiden käyttöä videopelei
 
 \chapter{Vektorigrafiikka}
 
-\section{Vektorigrafiikat ja niiden käyttö}
+\section{Vektorigrafiikat ja niiden käyttö}\label{määrittely}
 
 % - Määrittely
 % - Ominaisuudet
@@ -79,47 +79,65 @@ Vektorigrafiikoita käytetään peleissä eri tavoin. \textcite{RefWorks:doc:5bd
 
 \section{Vektorigrafiikan ja bittikarttagrafiikan eduista ja haitoista}
 
-% - Level of Detail
-% - Renderöinti
-% - Tiedostokoko
 % - Muokkaus
 % - Animointi
+% - Tiedostokoko
+% - Level of Detail
+% - Renderöinti
+
+Vektorigrafiikasta puhuttaessa tulee väistämättä esiin sen erot bittikarttagrafiikkaan. Usein vektorigrafiikka määritelläänkin juuri sillä, mitenkä se eroaa bittikarttagrafiikasta (ks. luku \ref{määrittely}). Kuten aiemmin on jo ilmennyt, vektorigrafiikan olennaisin ero ja etu bittikarttagrafiikkaan verrattuna on sen resoluutioriippumattomuus. Vektorigrafiikalla on myös monia muita etuja bittikarttagrafiikkaan verrattuna, mutta myös monia haittoja. Tässä luvussa erittelen näitä etuja ja haittoja.
+
+Koska vektorigrafiikka koostuu yksittäisistä elementeistä, käyrien muodostamista muodoista, on sitä helppo muokata \parencite{RefWorks:doc:5bdc5224e4b05afcfde5b159}. Bittigrafiikat ovat taas tyhmiä, ne tietävät vain kuvan mitat ja jokaisen yksittäisen pikselin värin, mutta eivät mitään kuvan esittämistä muodoista \parencite{RefWorks:doc:5bdc5292e4b05afcfde5b171}. Esimerkiksi viivalla rajatun alueen värin muuttaminen bittikarttakuvassa on koettu usean internetkeskustelun perusteella ongelmalliseksi \parencites{RefWorks:doc:5bdf1069e4b0a1f99c63c515}{RefWorks:doc:5bdf10ece4b0273295d72f8a}{RefWorks:doc:5bdf119fe4b0b329c55e47c9}. Vektorikuvan kanssa alueen värin vaihtaminen on kuitenkin helppoa, sillä tarvitsee vain määritellä kyseessä olevan elementin täyttöväri. Elementtien liikuttelu onnistuu vektorikuvassa helposti vaihtamalla pisteiden sijainteja, ja taustalla oleva elementti tulee silloin luonnollisesti näkyviin. Sen sijaan bittikarttakuvassa pitää ensin valita kaikki liikutettavat pikselit, jotka sitten liikkuessaan jättävät aukon kuvaan. \parencite{RefWorks:doc:5bdc5224e4b05afcfde5b159}
+
+Vektorigrafiikan elementtipohjaisuus mahdollistaa sen helpon animoimisen. Elementtien ominaisuuksia kuten sijaintia ja väriä pystyy muuttamaan ajan suhteen ohjelmallisesti, jolloin animoijan ei tarvitse määrittää kuin muutama avainkuva ja tietokone luo niiden väliin jäävät kuvat automaattisesti. Bittikartta-animaatiota tehdessä pitää valita käytettävä kehysnopeus ja piirtää sen mukainen määrä yksittäisiä kuvia. \parencite{RefWorks:doc:5bdc5224e4b05afcfde5b159} Jos bittikartta-animaation kehysnopeuden haluaakin esimerkiksi kaksinkertaistaa, tulee myös työmäärä kaksinkertaiseksi. Sen sijaan vektorianimaatio ei välitä ollenkaan kehysnopeudesta, vain animaation kesto tiedetään ja kehysnopeus määräytyy käytettävän laitteiston perusteella. Tehokas tietokone voi siis piirtää monta sataa kuvaa sekunnissa, mutta pienitehoinen kone piirtää vain muutamia kuvia.
+
+Bittikarttagrafiikan suurin etu onkin juuri suorituskyvyssä. Vektorigrafiikkakuvan renderöinti vaatii monia matemaattisia laskutoimituksia, jotta käyriä kuvaavasta datasta saadaan piirrettyä pikseleistä koostuva kuva. Bittikarttakuvaan onkin tallennettu pikseleistä koostuva kuva jo valmiiksi, joten ylimääräistä laskemista ei tule ollenkaan. \parencite{RefWorks:doc:5bdc5292e4b05afcfde5b171} Uusien nopeampien algoritmien kehittäminen vektorigrafiikan renderöimiseen on mielenkiintoinen tutkimuksen kohde. Esimerkiksi \textcite{RefWorks:doc:5bdf538de4b04939ba18218f} esittelevät algoritmia, joka nopeuttaa vektorikuvasta mielivaltaisesti otetun osan renderöimistä. Bittikarttakuvasta on tehokasta ottaa mielivaltainen osa, sillä kaikkien pikselien väri tiedetään jo valmiiksi. Sen sijaan vektorikuvasta mielivaltaisen osan ottaminen on epätehokasta, koska koko kuvan kaikki käyrät on joka tapauksessa pakko laskea. Nehabin ja Hoppen algoritmi tarjoaa ratkaisun tällaiseen ongelmaan. \parencite{RefWorks:doc:5bdf538de4b04939ba18218f} \textcite{RefWorks:doc:5bc4a5cce4b080e02f7eff1b} tarjoavat tehokkaan tavan hyödyntää näytönohjainta perinteisesti prosessorilla tapahtuvaan vektorigrafiikan renderöimiseen.
+
+Vektorikuvan tiedostokokoon suhde bittikarttakuvan tiedostokokoon riippuu kuvan monimutkaisuudesta ja resoluutiosta. Vektorikuvan tiedostokokoon vaikuttaa kuvan monimutkaisuus: mitä enemmän viivoja sitä suurempi tiedosto. Bittikarttakuvan kokoon vaikuttaa sen resoluutio: mitä suurempi kuva sitä suurempi tiedosto. Käyttökohteissa, joissa kuva on yksinkertainen, on vektorikuvan tiedostokoko pienempi. Jos esitetään monimutkaista kuvaa kuten valokuvaa, on bittikarttakuvan tiedostokoko pienempi. Tiedostokoon puolesta vektorikuva on parempi valinta kuin bittikarttakuva yksinkertaiseen grafiikkaan kuten logoon, mutta monimutkaiseen grafiikkaan jossa on paljon yksityiskohtia bittikarttakuva on soveltuvampi. \parencite{RefWorks:doc:5bdf4af9e4b0f02deeb8a48a}
 
 \chapter{Vektorigrafiikat videopeleissä}
 
 \section{Vektorigrafiikan historia peleissä}
 
-% - Oikeat vektoripelit
-% - Another World
-% - Flash-selainpelit
+- Oikeat vektoripelit
+
+- Another World
+
+- Flash-selainpelit
 
 \section{Vektorigrafiikan nykytila peleissä}
 
-% - Banner Saga
-% - Guacamelee
-% - Scribblenauts
-% - TF2
+- Banner Saga
+
+- Guacamelee
+
+- Scribblenauts
+
+- TF2
 
 \section{Ongelmia vektorigrafiikan käytössä}
 
-% - Ei virallista engine tukea
-% - "Rajoittunut" tyyli
+- Ei virallista engine tukea
+
+- "Rajoittunut" tyyli
 
 \chapter{Pohdintaa vektorigrafiikoiden tulevaisuudesta}
 
 \section{Selainpelit}
 
-% - Selaimessa toimivien sovellusten kasvu
-% - Suora tuki SVG:lle ja animaatioille
+- Selaimessa toimivien sovellusten kasvu
+
+- Suora tuki SVG:lle ja animaatioille
 
 \section{Vektorigrafiikka 3D-kappaleiden tekstuureissa}
 
-% - Supertekstuurit
-% - TF2
+- Supertekstuurit
+
+- TF2
 
 \chapter{Yhteenveto}
 
-% - Tarvitaan esimerkki proto
+- Tarvitaan esimerkki proto
 
 \printbibliography
 
