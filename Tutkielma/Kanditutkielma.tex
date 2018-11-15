@@ -2,6 +2,7 @@
 \documentclass[utf8,bachelor]{gradu3}
 \usepackage[bookmarksopen,bookmarksnumbered,linktocpage]{hyperref}
 \usepackage{graphicx}
+\usepackage{subcaption}
 \addbibresource{Lahteet.bib}
 
 % META
@@ -99,45 +100,61 @@ Vektorikuvan tiedostokokoon suhde bittikarttakuvan tiedostokokoon riippuu kuvan 
 
 \section{Vektorigrafiikan historia peleissä}
 
-- Oikeat vektoripelit
+% - Oikeat vektoripelit
+% - Another World
+% - Flash-selainpelit
 
-- Another World
+Vektorigrafiikoilla on ollut merkittävä osa videopelien historiassa. Ensimmäiset graafiset pelit käyttivät näyttöinään oskilloskooppeja ja satunnaisskannausnäyttöjä (random scan display), laitteita, joilla pystyy pikseleiden sijasta esittämään viivoja, vektoreita. Tällaisia näyttöjä sanotaan vektorinäytöiksi. Vektorinäytöillä oli monia etuja rasterinäyttöihin, kuten elementtien helppo pyörittäminen ja koon muuttaminen. \parencite{RefWorks:doc:5be179afe4b05afcfde72671}
 
-- Flash-selainpelit
+William Higinbothanin 1958 kehittämä Tennis for Two (ks. kuvio \ref{tennis}) on yksi ensimmäisistä graafisista videopeleistä \parencite{RefWorks:doc:5be15b13e4b05b9281959f24}. Tennis for Twossa on vain muutama yksinkertainen elementti, viivat esittävät maata, verkkoa ja tennismailoja ja piste esittää palloa, joten se sopii hyvin oskilloskoopilla pelattavaksi. Steve Russellin kumppaneineen vuosina 1961 ja 1962 kehittämä Spacewar! (ks. kuvio \ref{spacewar}) toimi alun perin Massachusetts Institute of Technologyn (MIT) Digital Equipment Corporationilta (DEC) saadulla PDP-1 -tietokoneella, mutta sen suuren suosion seurauksena sitä levitettiin ympäri yliopistoja ja siitä tehtiin versioita eri tietokoneille, tehden siitä ensimmäisen videopelin joka on levinnyt yhden yliopiston ulkopuolelle \parencites{RefWorks:doc:5be15b13e4b05b9281959f24}{RefWorks:doc:5be9d948e4b0304fd3d1692a}.
+
+\begin{figure} [!b]
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{tennis.jpg}
+        \caption{Tennis for Two \parencite{RefWorks:doc:5be168bae4b0273295d7dca5}}\label{tennis}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{spacewar.jpg}
+        \caption{Spacewar! \parencite{RefWorks:doc:5be162dfe4b0e42e08f77175}}\label{spacewar}
+    \end{subfigure}
+    \caption{Restauroidut versiot varhaisista videopeleistä.}\label{fig:fig}
+\end{figure}
+
+Tennis for Two ja Spacewar! olivat uraa uurtavia videopelejä aikana, jolloin tietokoneet maksoivat satojatuhansia dollareita ja olivat vain vakavaa käyttöä varten. Higinbothan ja Russell ynnä muut kuitenkin osoittivat, että tietokoneista oli paljon muuhunkin, ja turhanpäiväisten ohjelmien ja pelien kehityksestä oli myös käytännöllistä hyötyä. Spacewar! käytti lähes jokaista PDP-1 -tietokoneen käskyä, joten DEC alkoi käyttämään sitä testatessaan ja esitellessään uusien koneidensa toimintaa \parencite{RefWorks:doc:5beac148e4b08968d042364b}. 1970-luvulla videopelejä alettiin tekemään tosissaan ja tuomaan suuren yleisön saataville. 1971 julkaistiin ensimmäiset kolikkopelit Galaxy Game ja Computer Space, jotka molemmat olivat saaneet innoituksensa Spacewar!:sta. 1972 Magnavox julkaisi ensimmäisen kotikonsolin Magnavox Odysseyn. 1977 Apple Computer, Commodore ja Tandy julkaisivat ensimmäiset massatuotetut kotitietokoneet, joista Apple Computerin pelaamiseen keskittynyt Apple II oli kaikkein suosituin. \parencite{RefWorks:doc:5be15b13e4b05b9281959f24}
+
+Ensimmäiset kolikkopelikoneet, pelikonsolit ja kotitietokoneet käyttivät kaikki rasterinäyttöjä, muun muassa sen takia että vektorinäytöt olivat liian kalliita näihin tarkoituksiin. Larry Rosenthal kuitenkin onnistui rakentamaan tarpeeksi halvan vektorinäytön pelihalleihin, ja 1977 julkaistiin ensimmäinen kolikkopeli vektorinäytöllä, Space Wars, joka oli Galaxy Gamen ja Computer Spacen tavoin saanut innoituksensa Spacewar!:sta. Vektorinäytön grafiikat olivat erittäin terävät verrattuna sen aikaisiin pieniresoluutioisiin rasterinäyttöihin, ja ne saivat pelinkehittäjät innostumaan. Syntyi sellaiset klassikkopelit kuin Lunar Lander (1979) ja Asteroids (1979), sekä ensimmäiset 3D pelit Tailgunner (1979) ja Battlezone (1980). Vektorinäyttöjen suosio ei kuitenkaan kestänyt kovin pitkään, kun rasterinäytöistä alkoi tulemaan vuosikymmenten vaihteessa tarkempia ja värikkäämpiä. Vuoden 1983 videopelilaman myötä pelihallit eivät enää tilanneet vektoripelejä, eivätkä vektorinäytöt pysyneet rasterinäyttöjen kehityksen perässä. \parencite{RefWorks:doc:5be15b13e4b05b9281959f24}
+
+Smith Engineeringin kehittämä, 1982 julkaistu Vectrex on ensimmäinen ja ainoa vektorinäytöllä oleva kotikonsoli. Vectrex menestyi melko hyvin, mutta sen menestys ei kestänyt kauaa. Videopelilaman takia sen  valmistus lopetettiin jo 1984. Myöhemmin Vectrex on kuitenkin saanut melko merkittävän aseman retropeliharrastajien keskuudessa, ja se on suosittu alusta omatekoisten pelien tekemiseen. \parencite{RefWorks:doc:5bed604be4b02374b62fe1b5}
 
 \section{Vektorigrafiikan nykytila peleissä}
 
-- Banner Saga
-
-- Guacamelee
-
-- Scribblenauts
-
-- TF2
+% - Banner Saga
+% - Guacamelee
+% - Scribblenauts
+% - TF2
 
 \section{Ongelmia vektorigrafiikan käytössä}
 
-- Ei virallista engine tukea
-
-- "Rajoittunut" tyyli
+% - Ei virallista engine tukea
+% - "Rajoittunut" tyyli
 
 \chapter{Pohdintaa vektorigrafiikoiden tulevaisuudesta}
 
 \section{Selainpelit}
 
-- Selaimessa toimivien sovellusten kasvu
-
-- Suora tuki SVG:lle ja animaatioille
+% - Selaimessa toimivien sovellusten kasvu
+% - Suora tuki SVG:lle ja animaatioille
 
 \section{Vektorigrafiikka 3D-kappaleiden tekstuureissa}
 
-- Supertekstuurit
-
-- TF2
+% - Supertekstuurit
+% - TF2
 
 \chapter{Yhteenveto}
 
-- Tarvitaan esimerkki proto
+% - Tarvitaan esimerkki proto
 
 \printbibliography
 
