@@ -1,4 +1,5 @@
 % TIETOTEKNIIKAN KANDIDAATINTUTKIELMA
+
 \documentclass[utf8,bachelor]{gradu3}
 \usepackage[bookmarksopen,bookmarksnumbered,linktocpage]{hyperref}
 \usepackage{graphicx}
@@ -9,8 +10,8 @@
 
 \begin{document}
 
-\title{Reaaliaikaisesti renderöidyn vektorigrafiikan käyttö videopeleissä}
-\translatedtitle{Realtime rendered vector graphics in videogames}
+\title{Vektorigrafiikat ja niiden käyttö videopeleissä}
+\translatedtitle{Vector graphics and their usage in videogames}
 
 \avainsanat{avain1, avain2, avain3}
 \keywords{avainsanat englanniksi}
@@ -37,7 +38,7 @@
 
 Videopelejä pelataan nykyään monilla erikokoisilla ja -resoluutioisilla näytöillä. Esimerkiksi Bethesda Softworksin julkaisema Fallout Shelter -peli on saatavilla älypuhelimille, tietokoneille ja pelikonsoleille \parencite{RefWorks:doc:5bd6d887e4b0a1f99c62e6de}. Käyttäessä perinteistä bittikarttagrafiikkaa kehittäjien täytyy tehdä kompromisseja kohdentaessaan pelejään eri tarkkuuksisille näytöille. Vaihtoehtoja ovat kuvan venyttäminen eri kokoihin, mikä tuottaa epätarkkoja tai pikselöityneitä kuvia, tai monen eri kokoisen kuvan tekeminen, mikä lisää työmäärä ja lopullisen pelin tiedostokokoa. \parencite{RefWorks:doc:5bd8319de4b03ae5c9b276b8}
 
-Vektorigrafiikka on yksi ratkaisu näihin ongelmiin. Se sallii kuvan venyttämisen eri kokoiseksi ilman laadun kärsimistä. Vektorigrafiikkatiedosto, kuten SVG, on usein paljon pienempi kooltaan kuin bittikarttatiedosto, kuten PNG \parencites{RefWorks:doc:5bdc5224e4b05afcfde5b159}{RefWorks:doc:5bdc5292e4b05afcfde5b171}. Kuviosta \ref{vertailu} voi huomata, että jos kuvan haluaa esittää skaalattuna alimman rivin kokoiseksi, vasta 512x512 pikselin versiossa on tarpeeksi resoluutiota, eikä se näytä epäselvältä, toisin kuin sitä pienemmät versiot. 512x512 pikselin version tiedostokoko on kuitenkin yli kaksinkertainen suhteessa alkuperäisen SVG-kuvan tiedostokokoon. Jos kehittäjä haluaa pelin tukevan kaikkia kuviossa mainittuja resoluutioita tulee yhteenlasketuksi tiedostokooksi 612 kilotavua, yhdeksän kertaa alkuperäisen SVG-kuvan tiedostokoko.
+Vektorigrafiikka on yksi ratkaisu näihin ongelmiin. Se sallii kuvan venyttämisen eri kokoiseksi ilman laadun kärsimistä. Vektorigrafiikkatiedosto, kuten SVG, on usein paljon pienempi kooltaan kuin bittikarttatiedosto, kuten PNG \parencites{RefWorks:doc:5bdc5224e4b05afcfde5b159}{RefWorks:doc:5bdc5292e4b05afcfde5b171}. Kuviosta \ref{tiikeri} voi huomata, että jos kuvan haluaa esittää skaalattuna alimman rivin kokoiseksi, vasta 512x512 pikselin versiossa on tarpeeksi resoluutiota, eikä se näytä epäselvältä, toisin kuin sitä pienemmät versiot. 512x512 pikselin version tiedostokoko on kuitenkin yli kaksinkertainen suhteessa alkuperäisen SVG-kuvan tiedostokokoon. Jos kehittäjä haluaa pelin tukevan kaikkia kuviossa mainittuja resoluutioita tulee yhteenlasketuksi tiedostokooksi 612 kilotavua, yhdeksän kertaa alkuperäisen SVG-kuvan tiedostokoko.
 
 SVG-tiedosto tukee myös animointia, ja yhdessä tiedostossa voi olla monta animaatiota \parencite{RefWorks:doc:5bd74719e4b0e42e08f6333b}. Tällä tavalla esimerkiksi pelihahmolle saa samaan tiedostoon toimeton-, juoksu- ja hyppyanimaation. \textcite{RefWorks:doc:5bc4a5cce4b080e02f7eff1b} mukaan vektorigrafiikan renderöinti on perinteisesti ollut hidasta, eikä sitä ole voitu suorittaa tarpeeksi nopeasti jotta se olisi kannattavaa. Nykyiset teknologiat ja laitteistot kuitenkin mahdollistavat vektorikuvien esittämisen huomattavasti aiempaa nopeammin. Vektorikuvia on myös mahdollista esittää 3D-gafiikan seassa. \parencite{RefWorks:doc:5bc4a5cce4b080e02f7eff1b} Kysymykseksi jääkin, miksei reaaliajassa renderöidyn vektorigrafiikan käyttö videopeleissä ole yleistynyt, vaikka teknologia sen sallii. Mitä rajoitteita vektorigrafiikoiden käytössä on? Miten vektorigrafiikoita on käytetty aiemmin videopeleissä, miten niitä käytetään nykyään, ja miten niitä voidaan hyödyntää tulevaisuudessa?
 
@@ -46,7 +47,7 @@ Tässä kandidaatintutkielmassa tutkin vektorigrafiikoiden käyttöä videopelei
 \begin{figure}[!b]
 	\centering
 	\includegraphics[width=1.0\textwidth]{Ghostscript_Tiger_Comparison.pdf}
-    \caption{SVG-kuvan ja erikokoisten PNG-kuvien vertailua. Ylemmällä rivillä on alkuperäinen kuva ja alemmalla suurennos yksityiskohdasta.}\label{vertailu}
+    \caption{SVG-kuvan ja erikokoisten PNG-kuvien vertailua. Ylemmällä rivillä on alkuperäinen kuva ja alemmalla suurennos yksityiskohdasta.}\label{tiikeri}
 \end{figure}
 
 \chapter{Vektorigrafiikka}
@@ -78,7 +79,7 @@ Tietokoneen käyttöliittymät voivat olla toteutettu vektorigrafiikkana. Micros
 
 Vektorigrafiikoita käytetään peleissä eri tavoin. \textcite{RefWorks:doc:5bdc818be4b0965708b5a0f0} kertoo artikkelissaan kuinka Guacamelee!-pelin eri vaiheissa käytettiin vektorigrafiikoita. Ensimmäiset pelin luonnokset olivat Flashilla tehtyjä vektorianimaatioita. Myös pelin lopulliset grafiikat tehtiin Flashilla, mikä takasi sulavat animaatiot ja säästi muistia. \parencite{RefWorks:doc:5bdc818be4b0965708b5a0f0} \textcite{RefWorks:doc:5bdc7473e4b05afcfde5d742} tekemässä haastattelussa Brittany Aubert kertoo Scribblenauts Unlimited -pelin grafiikoiden olevan vektorikuvia, jotta objekteja voisi venyttää ilman kuvanlaadun kärsimistä. \textcite{RefWorks:doc:5bd88176e4b0afdabde2b8e2} puolestaan kertoo artikkelissan Banner Saga -pelin animointiprosessista. Animoitavat liikkeet kuvattiin ihmisten näyttelemänä ja rotoskoopattiin Flashilla sarjaksi vektorikuvia. Sen jälkeen Flash-animaatiot rasteroitiin joukoksi bittikarttakuvia. \parencite{RefWorks:doc:5bd88176e4b0afdabde2b8e2}
 
-\section{Vektorigrafiikan ja bittikarttagrafiikan eduista ja haitoista}
+\section{Vektorigrafiikan ja bittikarttagrafiikan eduista ja haitoista}\label{vertailu}
 
 % - Muokkaus
 % - Animointi
@@ -88,9 +89,9 @@ Vektorigrafiikoita käytetään peleissä eri tavoin. \textcite{RefWorks:doc:5bd
 
 Vektorigrafiikasta puhuttaessa tulee väistämättä esiin sen erot bittikarttagrafiikkaan. Usein vektorigrafiikka määritelläänkin juuri sillä, mitenkä se eroaa bittikarttagrafiikasta (ks. luku \ref{määrittely}). Kuten aiemmin on jo ilmennyt, vektorigrafiikan olennaisin ero ja etu bittikarttagrafiikkaan verrattuna on sen resoluutioriippumattomuus. Vektorigrafiikalla on myös monia muita etuja bittikarttagrafiikkaan verrattuna, mutta myös monia haittoja. Tässä luvussa erittelen näitä etuja ja haittoja.
 
-Koska vektorigrafiikka koostuu yksittäisistä elementeistä, käyrien muodostamista muodoista, on sitä helppo muokata \parencite{RefWorks:doc:5bdc5224e4b05afcfde5b159}. Bittigrafiikat ovat taas tyhmiä, ne tietävät vain kuvan mitat ja jokaisen yksittäisen pikselin värin, mutta eivät mitään kuvan esittämistä muodoista \parencite{RefWorks:doc:5bdc5292e4b05afcfde5b171}. Esimerkiksi viivalla rajatun alueen värin muuttaminen bittikarttakuvassa on koettu usean internetkeskustelun perusteella ongelmalliseksi \parencites{RefWorks:doc:5bdf1069e4b0a1f99c63c515}{RefWorks:doc:5bdf10ece4b0273295d72f8a}{RefWorks:doc:5bdf119fe4b0b329c55e47c9}. Vektorikuvan kanssa alueen värin vaihtaminen on kuitenkin helppoa, sillä tarvitsee vain määritellä kyseessä olevan elementin täyttöväri. Elementtien liikuttelu onnistuu vektorikuvassa helposti vaihtamalla pisteiden sijainteja, ja taustalla oleva elementti tulee silloin luonnollisesti näkyviin. Sen sijaan bittikarttakuvassa pitää ensin valita kaikki liikutettavat pikselit, jotka sitten liikkuessaan jättävät aukon kuvaan. \parencite{RefWorks:doc:5bdc5224e4b05afcfde5b159}
+Koska vektorigrafiikka koostuu yksittäisistä elementeistä, käyrien muodostamista muodoista, on sitä helppo muokata \parencite{RefWorks:doc:5bdc5224e4b05afcfde5b159}. Bittigrafiikat ovat taas niin sanotusti tyhmiä, ne tietävät vain kuvan mitat ja jokaisen yksittäisen pikselin värin, mutta eivät mitään kuvan esittämistä muodoista \parencite{RefWorks:doc:5bdc5292e4b05afcfde5b171}. Esimerkiksi viivalla rajatun alueen värin muuttaminen bittikarttakuvassa on koettu usean internetkeskustelun perusteella ongelmalliseksi \parencites{RefWorks:doc:5bdf1069e4b0a1f99c63c515}{RefWorks:doc:5bdf10ece4b0273295d72f8a}{RefWorks:doc:5bdf119fe4b0b329c55e47c9}. Vektorikuvan kanssa alueen värin vaihtaminen on kuitenkin helppoa, sillä tarvitsee vain määritellä kyseessä olevan elementin täyttöväri. Elementtien liikuttelu onnistuu vektorikuvassa helposti vaihtamalla pisteiden sijainteja, ja taustalla oleva elementti tulee silloin luonnollisesti näkyviin. Sen sijaan bittikarttakuvassa pitää ensin valita kaikki liikutettavat pikselit, jotka sitten liikkuessaan jättävät aukon kuvaan. \parencite{RefWorks:doc:5bdc5224e4b05afcfde5b159}
 
-Vektorigrafiikan elementtipohjaisuus mahdollistaa sen helpon animoimisen. Elementtien ominaisuuksia kuten sijaintia ja väriä pystyy muuttamaan ajan suhteen ohjelmallisesti, jolloin animoijan ei tarvitse määrittää kuin muutama avainkuva ja tietokone luo niiden väliin jäävät kuvat automaattisesti. Bittikartta-animaatiota tehdessä pitää valita käytettävä kehysnopeus ja piirtää sen mukainen määrä yksittäisiä kuvia. \parencite{RefWorks:doc:5bdc5224e4b05afcfde5b159} Jos bittikartta-animaation kehysnopeuden haluaakin esimerkiksi kaksinkertaistaa, tulee myös työmäärä kaksinkertaiseksi. Sen sijaan vektorianimaatio ei välitä ollenkaan kehysnopeudesta, vain animaation kesto tiedetään ja kehysnopeus määräytyy käytettävän laitteiston perusteella. Tehokas tietokone voi siis piirtää monta sataa kuvaa sekunnissa, mutta pienitehoinen kone piirtää vain muutamia kuvia.
+Vektorigrafiikan elementtipohjaisuus mahdollistaa sen helpon animoimisen. Elementtien ominaisuuksia kuten sijaintia ja väriä pystyy muuttamaan ajan suhteen ohjelmallisesti, jolloin animoijan ei tarvitse määrittää kuin muutama avainkuva (keyframe) ja tietokone luo niiden väliin jäävät kuvat automaattisesti. Bittikartta-animaatiota tehdessä pitää valita käytettävä kehysnopeus ja piirtää sen mukainen määrä yksittäisiä kuvia. \parencite{RefWorks:doc:5bdc5224e4b05afcfde5b159} Jos bittikartta-animaation kehysnopeuden haluaakin esimerkiksi kaksinkertaistaa, tulee myös työmäärä kaksinkertaiseksi. Sen sijaan vektorianimaatio ei välitä ollenkaan kehysnopeudesta, vain animaation kesto tiedetään ja kehysnopeus määräytyy käytettävän laitteiston perusteella. Tehokas tietokone voi siis piirtää monta sataa kuvaa sekunnissa, mutta pienitehoinen kone piirtää vain muutamia kuvia.
 
 Bittikarttagrafiikan suurin etu onkin juuri suorituskyvyssä. Vektorigrafiikkakuvan renderöinti vaatii monia matemaattisia laskutoimituksia, jotta käyriä kuvaavasta datasta saadaan piirrettyä pikseleistä koostuva kuva. Bittikarttakuvaan onkin tallennettu pikseleistä koostuva kuva jo valmiiksi, joten ylimääräistä laskemista ei tule ollenkaan. \parencite{RefWorks:doc:5bdc5292e4b05afcfde5b171} Uusien nopeampien algoritmien kehittäminen vektorigrafiikan renderöimiseen on mielenkiintoinen tutkimuksen kohde. Esimerkiksi \textcite{RefWorks:doc:5bdf538de4b04939ba18218f} esittelevät algoritmia, joka nopeuttaa vektorikuvasta mielivaltaisesti otetun osan renderöimistä. Bittikarttakuvasta on tehokasta ottaa mielivaltainen osa, sillä kaikkien pikselien väri tiedetään jo valmiiksi. Sen sijaan vektorikuvasta mielivaltaisen osan ottaminen on epätehokasta, koska koko kuvan kaikki käyrät on joka tapauksessa pakko laskea. Nehabin ja Hoppen algoritmi tarjoaa ratkaisun tällaiseen ongelmaan. \parencite{RefWorks:doc:5bdf538de4b04939ba18218f} \textcite{RefWorks:doc:5bc4a5cce4b080e02f7eff1b} tarjoavat tehokkaan tavan hyödyntää näytönohjainta perinteisesti prosessorilla tapahtuvaan vektorigrafiikan renderöimiseen.
 
@@ -104,9 +105,9 @@ Vektorikuvan tiedostokokoon suhde bittikarttakuvan tiedostokokoon riippuu kuvan 
 % - Another World
 % - Flash-selainpelit
 
-Vektorigrafiikoilla on ollut merkittävä osa videopelien historiassa. Ensimmäiset graafiset pelit käyttivät näyttöinään oskilloskooppeja ja satunnaisskannausnäyttöjä (random scan display), laitteita, joilla pystyy pikseleiden sijasta esittämään viivoja, vektoreita. Tällaisia näyttöjä sanotaan vektorinäytöiksi. Vektorinäytöillä oli monia etuja rasterinäyttöihin, kuten elementtien helppo pyörittäminen ja koon muuttaminen. \parencite{RefWorks:doc:5be179afe4b05afcfde72671}
+Vektorigrafiikoilla on ollut merkittävä osa videopelien historiassa. Ensimmäiset graafiset pelit käyttivät näyttöinään oskilloskooppeja ja satunnaisskannausnäyttöjä (random scan display), laitteita, jotka pikseleiden sijasta esittävät viivoja eli vektoreita. Tällaisia näyttöjä kutsutaan vektorinäytöiksi. Vektorinäytöillä oli monia etuja rasterinäyttöihin verrattuna, kuten elementtien helppo pyörittäminen ja koon muuttaminen. \parencite{RefWorks:doc:5be179afe4b05afcfde72671}
 
-William Higinbothanin 1958 kehittämä Tennis for Two (ks. kuvio \ref{tennis}) on yksi ensimmäisistä graafisista videopeleistä \parencite{RefWorks:doc:5be15b13e4b05b9281959f24}. Tennis for Twossa on vain muutama yksinkertainen elementti, viivat esittävät maata, verkkoa ja tennismailoja ja piste esittää palloa, joten se sopii hyvin oskilloskoopilla pelattavaksi. Steve Russellin kumppaneineen vuosina 1961 ja 1962 kehittämä Spacewar! (ks. kuvio \ref{spacewar}) toimi alun perin Massachusetts Institute of Technologyn (MIT) Digital Equipment Corporationilta (DEC) saadulla PDP-1 -tietokoneella, mutta sen suuren suosion seurauksena sitä levitettiin ympäri yliopistoja ja siitä tehtiin versioita eri tietokoneille, tehden siitä ensimmäisen videopelin joka on levinnyt yhden yliopiston ulkopuolelle \parencites{RefWorks:doc:5be15b13e4b05b9281959f24}{RefWorks:doc:5be9d948e4b0304fd3d1692a}.
+William Higinbothanin vuonna 1958 kehittämä Tennis for Two (ks. kuvio \ref{tennis}) on yksi ensimmäisistä graafisista videopeleistä \parencite{RefWorks:doc:5be15b13e4b05b9281959f24}. Tennis for Twossa on vain muutama yksinkertainen elementti, viivat esittämässä maata, verkkoa ja tennismailoja sekä piste esittämässä palloa, joten se soveltuu hyvin oskilloskoopilla pelattavaksi. Steve Russellin kumppaneineen vuosina 1961 ja 1962 kehittämä Spacewar! (ks. kuvio \ref{spacewar}) toimi alun perin Massachusetts Institute of Technologyn (MIT) Digital Equipment Corporationilta (DEC) saadulla PDP-1 -tietokoneella, mutta pelin suuren suosion seurauksena sitä levitettiin toisiin yliopistoihin ja siitä tehtiin versioita eri tietokoneille, tehden siitä ensimmäisen videopelin, joka on levinnyt yhden yliopiston ulkopuolelle \parencites{RefWorks:doc:5be15b13e4b05b9281959f24}{RefWorks:doc:5be9d948e4b0304fd3d1692a}. % mieti kuinka jakaa viimeinen virke kahdeksi
 
 \begin{figure} [!b]
     \begin{subfigure}[t]{0.5\textwidth}
@@ -119,38 +120,67 @@ William Higinbothanin 1958 kehittämä Tennis for Two (ks. kuvio \ref{tennis}) o
         \includegraphics[width=0.8\linewidth]{spacewar.jpg}
         \caption{Spacewar! \parencite{RefWorks:doc:5be162dfe4b0e42e08f77175}}\label{spacewar}
     \end{subfigure}
-    \caption{Restauroidut versiot varhaisista videopeleistä.}\label{fig:fig}
+    \caption{Restauroidut versiot varhaisista videopeleistä.}
 \end{figure}
 
-Tennis for Two ja Spacewar! olivat uraa uurtavia videopelejä aikana, jolloin tietokoneet maksoivat satojatuhansia dollareita ja olivat vain vakavaa käyttöä varten. Higinbothan ja Russell ynnä muut kuitenkin osoittivat, että tietokoneista oli paljon muuhunkin, ja turhanpäiväisten ohjelmien ja pelien kehityksestä oli myös käytännöllistä hyötyä. Spacewar! käytti lähes jokaista PDP-1 -tietokoneen käskyä, joten DEC alkoi käyttämään sitä testatessaan ja esitellessään uusien koneidensa toimintaa \parencite{RefWorks:doc:5beac148e4b08968d042364b}. 1970-luvulla videopelejä alettiin tekemään tosissaan ja tuomaan suuren yleisön saataville. 1971 julkaistiin ensimmäiset kolikkopelit Galaxy Game ja Computer Space, jotka molemmat olivat saaneet innoituksensa Spacewar!:sta. 1972 Magnavox julkaisi ensimmäisen kotikonsolin Magnavox Odysseyn. 1977 Apple Computer, Commodore ja Tandy julkaisivat ensimmäiset massatuotetut kotitietokoneet, joista Apple Computerin pelaamiseen keskittynyt Apple II oli kaikkein suosituin. \parencite{RefWorks:doc:5be15b13e4b05b9281959f24}
+Tennis for Two ja Spacewar! olivat uraa uurtavia videopelejä aikana, jolloin tietokoneet maksoivat satojatuhansia dollareita ja olivat vain vakavaa käyttöä varten. Higinbothan ja Russell ynnä muut kuitenkin osoittivat, että tietokoneista oli muuhunkin: turhanpäiväisten ohjelmien ja pelien kehityksestä oli myös käytännöllistä hyötyä. Spacewar! käytti lähes jokaista PDP-1 -tietokoneen käskyä, joten DEC alkoi käyttää peliä testatessaan ja esitellessään uusien koneidensa toimintaa \parencite{RefWorks:doc:5beac148e4b08968d042364b}. 1970-luvulla videopelejä alettiin kehittää vakavasti ja tuomaan suuren yleisön saataville. 1971 julkaistiin ensimmäiset kolikkopelit Galaxy Game ja Computer Space, jotka molemmat olivat saaneet innoituksensa Spacewar!:sta. Seuraavana vuonna Magnavox julkaisi ensimmäisen kotikonsolin Magnavox Odysseyn. Apple Computer, Commodore ja Tandy julkaisivat vuonna 1977 ensimmäiset massatuotetut kotitietokoneet, joista suosituin oli Apple Computerin pelaamiseen keskittynyt Apple II. \parencite{RefWorks:doc:5be15b13e4b05b9281959f24} % vakavaa käyttöä tarkennettava
 
-Ensimmäiset kolikkopelikoneet, pelikonsolit ja kotitietokoneet käyttivät kaikki rasterinäyttöjä, muun muassa sen takia että vektorinäytöt olivat liian kalliita näihin tarkoituksiin. Larry Rosenthal kuitenkin onnistui rakentamaan tarpeeksi halvan vektorinäytön pelihalleihin, ja 1977 julkaistiin ensimmäinen kolikkopeli vektorinäytöllä, Space Wars, joka oli Galaxy Gamen ja Computer Spacen tavoin saanut innoituksensa Spacewar!:sta. Vektorinäytön grafiikat olivat erittäin terävät verrattuna sen aikaisiin pieniresoluutioisiin rasterinäyttöihin, ja ne saivat pelinkehittäjät innostumaan. Syntyi sellaiset klassikkopelit kuin Lunar Lander (1979) ja Asteroids (1979), sekä ensimmäiset 3D pelit Tailgunner (1979) ja Battlezone (1980). Vektorinäyttöjen suosio ei kuitenkaan kestänyt kovin pitkään, kun rasterinäytöistä alkoi tulemaan vuosikymmenten vaihteessa tarkempia ja värikkäämpiä. Vuoden 1983 videopelilaman myötä pelihallit eivät enää tilanneet vektoripelejä, eivätkä vektorinäytöt pysyneet rasterinäyttöjen kehityksen perässä. \parencite{RefWorks:doc:5be15b13e4b05b9281959f24}
+Ensimmäiset kolikkopelikoneet, pelikonsolit ja kotitietokoneet käyttivät rasterinäyttöjä, muun muassa sen takia, että vektorinäytöt olivat liian kalliita näihin tarkoituksiin. Larry Rosenthal kuitenkin onnistui rakentamaan tarpeeksi halvan vektorinäytön pelihalleihin, ja vuonna 1977 julkaistiin ensimmäinen vektorinäytöllinen kolikkopeli Space Wars, joka oli Galaxy Gamen ja Computer Spacen tavoin saanut innoituksensa Spacewar!:sta. Vektorinäytön grafiikat olivat huomattavasti terävemmät verrattuna sen aikaisiin pieniresoluutioisiin rasterinäyttöihin, ja tämä saivat pelinkehittäjät innostumaan; syntyivät klassikkopelit Lunar Lander (1979) ja Asteroids (1979), sekä ensimmäiset 3D-pelit Tailgunner (1979) ja Battlezone (1980). Vektorinäyttöjen suosio ei kuitenkaan kestänyt kovin kauan, kun rasterinäytöt kehittyivät vuosikymmenten vaihteessa tarkemmiksi ja värikkäämmiksi. Vuoden 1983 videopelilaman myötä pelihallit eivät enää tilanneet vektoripelejä, eivätkä vektorinäytöt pysyneet rasterinäyttöjen kehityksen perässä. \parencite{RefWorks:doc:5be15b13e4b05b9281959f24}
 
-Smith Engineeringin kehittämä, 1982 julkaistu Vectrex on ensimmäinen ja ainoa vektorinäytöllä oleva kotikonsoli. Vectrex menestyi melko hyvin, mutta sen menestys ei kestänyt kauaa. Videopelilaman takia sen  valmistus lopetettiin jo 1984. Myöhemmin Vectrex on kuitenkin saanut melko merkittävän aseman retropeliharrastajien keskuudessa, ja se on suosittu alusta omatekoisten pelien tekemiseen. \parencite{RefWorks:doc:5bed604be4b02374b62fe1b5}
+Smith Engineeringin kehittämä, 1982 julkaistu Vectrex on ensimmäinen ja ainoa vektorinäytöllinen kotikonsoli. Vectrex menestyi melko hyvin, mutta sen menestys ei kestänyt kuin reilun vuoden. Videopelilaman takia sen  valmistus lopetettiin jo 1984. Myöhemmin Vectrex on kuitenkin saanut melko merkittävän aseman retropeliharrastajien keskuudessa, ja se on suosittu alusta kotitekoisten pelien (homebrew games) tekemiseen. \parencite{RefWorks:doc:5bed604be4b02374b62fe1b5}
 
-\section{Vektorigrafiikan nykytila peleissä}
+\section{Vektorigrafiikan nykytila peleissä}\label{nykypelit}
 
 % - Banner Saga
 % - Guacamelee
 % - Scribblenauts
 % - TF2
 
+Vektorinäyttöjä ei enää ole laajasti saatavilla, mutta monet pelit matkivat niiden tyyliä. Geometry Wars: Retro Evolved (2005) ja Groov (2009) ovat hyviä esimerkkejä moderneista peleistä, jotka ovat saaneet inspiraationsa vanhoista vektoripeleistä. \parencite{RefWorks:doc:5be15b13e4b05b9281959f24} On kuitenkin epäselvää, käyttävätkö nämä pelit todellisuudessa vektorigrafiikoita vai bittikarttakuvia, sillä niiden kehittämisestä on hyvin vähän tietoa saatavilla. Sama tiedon puute koskee myös muita pelejä, jotka tyyliltään näyttävät siltä, että voisivat käyttää vektorigrafiikoita. Pelkästään peliä tarkastelemalla on hankala sanoa, käyttääkö se vektori- vai bittikarttagrafiikoita, sillä bittikarttakuvat voivat olla rasteroituja vektorikuvia, näyttäen tietyssä resoluutiossa täysin samalta. Tässä luvussa esittelen joitain videopelejä, jotka käyttävät tiettävästä vektorigrafiikoita ja joiden kehittämisestä löytyy dokumentaatiota kehittäjäblogien, artikkeleiden tai haastatteluiden muodossa.
+
+Yksi näkyvimmin vektorigrafiikoita hyödyntävistä peleistä on Ian Synderin vuonna 2014 julkaisema The Floor is Jelly (ks. kuvio \ref{jelly}). Uniikissa Flashilla ohjelmoidussa tasohyppelypelissä seikkaillaan maailmassa, joka on nimensä mukaisesti tehty hyytelöstä. Hyppiminen ja seiniin törmääminen saa aikaan hytkyvän efektin, joka on mahdollistettu käyttämällä vektorigrafiikoita. \parencite{RefWorks:doc:5beea20ce4b06f8a51cf9f11} Blogissaan \textcite{RefWorks:doc:5beec035e4b0463eaf2fd475} kertoo pelimaailman muodostuvan sarjasta pisteitä ja niiden sisään jäävästä väritetystä alueesta. Hyytelöefekti on toteutettu niin, että pisteitä liikutetaan iskun seurauksena aallon tavoin, ja lopulta ne palaavat takaisin lähtöpaikoillensa \parencite{RefWorks:doc:5beec035e4b0463eaf2fd475}. Pelin \parencite{RefWorks:doc:5beea20ce4b06f8a51cf9f11} tiedostojen tarkastelu osoittaa, että pelimaailman lisäksi myös muut pelin grafiikat, kuten pelihahmot ja kasvillisuus, ovat vektorikuvia.
+
+Guacamelee! on DrinkBox Studiosin 2013 julkaisema meksikolaisesta painista inspiroitunut toimintatasohyppelypeli. Guacamelee! on rakennettu DrinkBoxin omalla pelimoottorilla DrinkBox Enginellä, joka on ohjelmoitu C++:lla. Pelihahmojen grafiikat on tehty ja animoitu resoluutioriippumattomasti Flashilla, minkä jälkeen Flash-tiedostot on tuotu DrinkBox Engineen. Vektorikuvat ja -animaatiot mahdollistavat hahmojen skaalaamisen eri kokoisiksi ja 60 fps -animaation. \parencite{RefWorks:doc:5bdc818be4b0965708b5a0f0} Hahmoista poiketen pelin tasot ja taustat on tehty kerrostetuista 3D-kappaleista, mikä tuo peliin syvyyden vaikutelmaa \parencite{RefWorks:doc:5beef606e4b03977dc5d4788}.
+
+5Antsin kehittämä ja Rovio Starsin vuonna 2013 julkaisema Tiny Thief on Robin Hood -sävytteinen point-and-click -seikkailupeli Androidille, iOS:lle, Windowsille, OS X:lle ja Wii U:lle \parencites{RefWorks:doc:5bf09463e4b06df665225aeb}{RefWorks:doc:5bf0993ae4b0e21eda418a20}{RefWorks:doc:5bf099d4e4b08f3b86fd2aa3}. 5Antsilla oli kehityksen aikana vaikeuksia Flashilla toteutettujen vektorianimaatioiden ja Adobe AIR -ajoympäristön kanssa. Tiny Thiefin yksi pääelementti oli sen käyttämät 3000 animaatiota, mutta Adobe AIRin rajoitteiden takia vektorigrafiikat eivät toimineet tarpeeksi tehokkaasti joillain laitteilla. Ongelma ratkesi vaihtamalla Adobe AIR Scaleform Mobile SDK:hon, jossa ei ollut samoja rajoitteita. \parencites{RefWorks:doc:5bf09463e4b06df665225aeb}{RefWorks:doc:5bf093b3e4b093d9850ad715} Tiny Thiefin kehittäminen on sittemmin lopetettu ja se on poistettu sovelluskaupoista \parencite{RefWorks:doc:5bf0a115e4b09867bf4e3edb}.
+
+Vaikka 3D-grafiikat pohjautuvatkin vektorigrafiikoihin \parencite{RefWorks:doc:5bdc5224e4b05afcfde5b159}, käytetään niiden teksturoimiseen bittikarttagrafiikoita \parencite{RefWorks:doc:5bf00b76e4b0b28cc7291a34}. Bittikarttagrafiikoiden käyttö on ongelmallista, sillä läheltä tarkasteltaessa niistä tulee epäselviä, tai vaihtoehtoisesti ne pitää tallentaa erittäin suurikokoisina tiedostoina. Tämän ehkäisemiseksi on kehitetty tekniikoita, jotka hyödyntävät vektorigrafiikoita 3D-kappaleiden teksturoinnissa. \parencite{RefWorks:doc:5bc4a5cbe4b0af09f17dfdc1} Eräs tällaista tekniikkaa hyödyntävä peli on Valve Corporationin vuonna 2007 julkaisema Team Fortress 2 (ks. kuvio \ref{tf2}). Pelissä esiintyvät tekstuurit on tallennettu etäisyyskenttinä (distance field), jotka ovat bittikarttakuvina koodattuja esityksiä vektorikuvista. Bittikarttakuvia ei esitetä käyttäjälle sellaisenaan, vaan niiden avulla lasketaan kuvan rajat, ja näistä rajoista muodostuvat vektorikuvat esitetään käyttäjälle. Tämä tekniikka mahdollistaa vektorigrafiikoiden esittämisen lähes yhtä tehokkaasti kuin bittikarttagrafiikoiden, mutta se aiheuttaa lievää epätarkkuutta lopulliseen kuvaan. \parencite{RefWorks:doc:5bc4a5cbe4b0af09f17dfdc1}
+
+\begin{figure} [!b]
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{jelly.png}
+        \caption{The Floor is Jelly \parencite{RefWorks:doc:5beea20ce4b06f8a51cf9f11}}\label{jelly}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{tf2.png}
+        \caption{Team Fortress 2 \parencite{RefWorks:doc:5bf037f1e4b0a014899520eb}}\label{tf2}
+    \end{subfigure}
+    \caption{Vektorigrafiikoiden käyttö nykyaikaisissa videopeleissä.}
+\end{figure}
+
 \section{Ongelmia vektorigrafiikan käytössä}
 
 % - Ei virallista engine tukea
 % - "Rajoittunut" tyyli
 
+Vektorigrafiikoiden käytössä on ongelmia, mistä syystä ne eivät ole laajasti yleistynyt videopeleissä. Yksi suurimmista ongelmista on suorituskyky. Kuten jo aikaisemmin on mainittu (ks. luku \ref{vertailu}), bittikarttagrafiikoiden käyttäminen on huomattavasti tehokkaampaa kuin vektorigrafiikoiden, vaikka koko ajan kehitetäänkin uusia tehokkaampia algoritmeja vektorigrafiikoiden renderöimiseen (esim. \cite{RefWorks:doc:5bc4a5cce4b080e02f7eff1b}). Tästä johtuen kehittäjien on helpompi valita vektorigrafiikoiden sijasta bittikarttagrafiikat peleihinsä. Vektorigrafiikoiden käyttö aiheuttaa kehittäjille ylimääräisiä ongelmia suorituskyvyn kanssa, kuten 5Antsin tapauksessa (ks. luku \ref{nykypelit}).
+
+Usein kehittäjillä ei ole mahdollisuutta vaikuttaa siihen, minkä tyyppisiä grafiikoita he voivat käyttää peleissään. TIGAn (\citeyear{RefWorks:doc:5bf14747e4b09ed70a21a7e4}) tekemän tutkimuksen mukaan 53 prosenttia vastanneista pelinkehittäjistä ei käytä itse tekemiään vaan kolmannen osapuolen pelimoottoreita. Unity 3D Engine ja Unreal Engine olivat kyselyn perusteella kaksi eniten käytettyä kolmannen osapuolen pelimoottoria: vastaajista 62 prosenttia käytti Unitya ja 12 prosenttia Unreal Enginea \parencite{RefWorks:doc:5bf14747e4b09ed70a21a7e4}. Kumpikaan näistä ei tue vektorigrafiikkatiedostojen käyttöä \parencites{RefWorks:doc:5bf1684be4b045abd3990077}{RefWorks:doc:5bf168ace4b0d4880bbec9aa}, joten monen kehittäjän on tyydyttävä bittikarttagrafiikoihin tai epävirallisiin lisäosiin, joista usein puuttuu vektorigrafiikkatiedostojen ominaisuuksia \parencites{RefWorks:doc:5bf1712ce4b0efa59d30f4f7}{RefWorks:doc:5bf17193e4b09ed70a21ac25}.
+
+Bittikarttagrafiikoiden käyttö vektorigrafiikkojen sijasta voi myös olla taiteellinen valinta. Vektorigrafiikat sopivat hyvin selkeiden muotojen esittämiseen, mutta esimerkiksi tavoiteltaessa realistista tyyliä bittikarttakuvat ovat parempi vaihtoehto \parencite{RefWorks:doc:5bdc5224e4b05afcfde5b159}. Monimutkaista kuvaa esittävän vektorikuvan tiedostokoko voi olla valtavan suuri \parencite{RefWorks:doc:5bdf4af9e4b0f02deeb8a48a}, ja sen renderöimiseen tarvittava laskentateho kohtuuton. Realistisen tai muulla tavalla monimutkaisen grafiikan tapauksessa vektorigrafiikoiden käyttö ei ole suositeltavaa \parencite{RefWorks:doc:5bdf4af9e4b0f02deeb8a48a}. Monien mielestä vektorigrafiikat ovat rumia ja ne yhdistetään huonolaatuisiin ilmaisiin nettipeleihin, jotka on tehty Flashilla ja käyttävät vektorigrafiikoita \parencite{RefWorks:doc:5bf1b71ae4b0bdd1f93c0e3c}.
+
+Vektorikuvien tekemisen työnkulku on erilainen kuin bittikarttakuvien, sillä piirtämisen ja maalaamisen sijasta määritelläänkin pisteiden sijainteja ja ominaisuuksia. Tästä syystä vektorigrafiikoiden tekeminen voi olla vaikeaa niille, jotka ovat tottuneet tekemään videopeligrafiikoita bittikarttagrafiikkoina. Ne puolestaa, jotka ovat tottuneet tekemään vektorigrafiikoita, ovat usein tottuneet tekemään graafisia esityksiä, kuten logoja, pelihahmojen sijasta. Nykyaikaiset vektorigrafiikkaohjelmat, kuten Adobe Systemsin (\citeyear{RefWorks:doc:5bf1ca5ee4b03fd0c4891238}) Adobe Illustrator ovat pyrkineet madaltamaan vektorigrafiikoiden tekemisen kynnystä mahdollisimman paljon. Adobe Illustrator tarjoaa monia bittikarttagrafiikkaohjelmista tuttuja ominaisuuksia, kuten erilaisia siveltimiä, joiden avulla vektorikuvaan voi lisätä viivoja ikään kuin maalaten. \parencite{RefWorks:doc:5bf1ca5ee4b03fd0c4891238}
+
 \chapter{Pohdintaa vektorigrafiikoiden tulevaisuudesta}
 
-\section{Selainpelit}
-
-% - Selaimessa toimivien sovellusten kasvu
-% - Suora tuki SVG:lle ja animaatioille
-
-\section{Vektorigrafiikka 3D-kappaleiden tekstuureissa}
-
-% - Supertekstuurit
-% - TF2
+% - Liiba laaba
+% - Unity 2018.2 SVG tuki (!)
+% - SVG 2
+% - Selainpelit
+% - VR tekstuurit
+% - Uudet vektorigrafiikka tekniikat (diffuusiokäyrät)
 
 \chapter{Yhteenveto}
 
