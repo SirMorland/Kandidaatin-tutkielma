@@ -16,13 +16,13 @@
 \title{Vektorigrafiikat ja niiden käyttö videopeleissä}
 \translatedtitle{Vector graphics and their usage in videogames}
 
-\avainsanat{avain1, avain2, avain3}
-\keywords{avainsanat englanniksi}
+\avainsanat{vektorigrafiikat, videopelit, videopeligrafiikat, SVG}
+\keywords{vector graphics, videogames, videogame graphics, SVG}
 \tiivistelma{
-    Tiivistelmä on tyypillisesti 5-10 riviä pitkä esitys työn pääkohdista (tausta, tavoite, tulokset, johtopäätökset).
+    Tässä tutkielmassa pohditaan, minkä syiden takia vektorigrafiikoiden käyttö ei ole yleistynyt videopeleissä. Lisäksi esitellään joitain vektorigrafiikoita käyttäviä pelejä. Huolimatta vektorigrafiikoiden eduista bittikarttagrafiikoihin verrattuna, on niiden käytössä monia ongelmia, kuten huonompi suorituskyky, puuttuva pelimoottorituki ja taiteellinen rajoittuneisuus. Näitä ongelmia pyritään vähentämään parantamalla vektorigrafiikoiden suorituskykyä ja tarjoamalla työkaluja, joiden avulla vektorigrafiikoita on helpompi käyttää.
 }
 \abstract{
-    Englanninkielinen versio tiivistelmästä.
+    This study discusses reasons for the lack of adoption of vector graphics in videogames. In addition some games that do use vector graphics are presented. Despite the benefits of vector graphics over raster graphics, their usage has many problems such as performance, the lack of game engine support and artistic limitations. Vector graphics are constantly developed in attempt to overcome these problems by increasing the performance and offering tools for more accessible use.
 }
 
 \author{Ville Helppolainen}
@@ -181,6 +181,16 @@ Vektorikuvien tekemisen työnkulku on erilainen kuin bittikarttakuvien, sillä p
 \chapter{Yhteenveto}
 
 % - Tarvitaan esimerkki proto
+
+Vektorigrafiikoiden käytön videopeleissä voi jakaa kahteen aikakauteen: ennen ja jälkeen vuoden 1983 videopelilaman. Ennen lamaa kukoistivat niin sanotut oikeat vektoripelit, eli pelit, joita pelattiin vektorinäytöillä. Laman jälkeen siirryttiin käyttämään rasterinäyttöjä eivätkä vektorigrafiikat enää täyttäneet yleisön vaatimuksia. Lähes kaikki pelit 80-luvulta lähtien käyttävätkin bittikarttagrafiikoita. Vektorigrafiikoiden renderöinti rasterinäytölle sopivaksi vaatii paljon laskentatehoa, jota varsinkaan 80-luvun tietokoneissa ei ollut. Teknologian kehittymisen myötä vektorigrafiikoita on voitu hyödyntää paremmin, mutta vieläkään niistä ei ole tullut yleisesti käytettyjä videopeleissä. Edes viimeisen kymmenen vuoden ajalta on vaikea löytää vektorigrafiikoita käyttäviä pelejä, mikä on osaltaan hankaloittanut tämän tutkielman tekoa.
+
+Tehokkaampien algoritmien ja laitteistojen kehittäminen antaa mahdollisuuden tehdä pelejä, joissa on enemmän ja monimutkaisempia vektorikuvia. Tekniikan kehittyminen parantaa kehittäjien kykyä käyttää peleissään vektorikuvia graafisesta tyylistä riippumatta. Olemassa olevien ominaisuuksien parantamisen lisäksi vektorigrafiikoihin kehitetään myös uusia ominaisuuksia. Esimerkiksi \textcite{RefWorks:doc:5bfd0d4de4b0bf300b66d3fe} esittävät täysin uudenlaista vektorigrafiikkaelementtiä, diffuusiokäyrää. Käyrien välinen alue täytetään käyrien värejä vastaavilla liukuväreillä, ja näin saadaan luotua erittäin monimutkaisia vektorikuvia vain muutamalla käyrällä. \parencitedot{RefWorks:doc:5bfd0d4de4b0bf300b66d3fe} Uudet teknologiat mahdollistavat vektorigrafiikoiden käytön sellaisissa graafisissa tyyleissä, joissa ne eivät ole ennen toimineet.
+
+Teknisesti on siis täysin mahdollista käyttää vektorigrafiikoita videopeleissä, mutta käytännössä siinä on vielä monia ongelmia. Puuttuvan pelimoottorituen ja virheellisten ennakkoluulojen takia käytetään mieluummin bittikarttagrafiikat harkitsemattakaan vektorigrafiikoita. Unityn SVG-paketin olemassaolo kuitenkin kertoo vektorigrafiikoille olevan niin paljon kysyntää, että tällaisen paketin tekeminen koetaan liiketoiminnallisesti kannattavana. Vektorifiikoiden näkyvyyden lisääntyminen pelinkehittäjien keskuudessa lisää vektorigrafiikoiden käyttöä ja samalla huomataan, etteivät vektorigrafiikat automaattisesti tarkoita alkeellisia ja yksinkertaisia grafiikoita. Kehittyneiden teknologioiden ansiosta on mahdollista tehdä edistyneitä ja monimuotoisia vektorikuvia, joita voi silti renderöidä reaaliaikaisesti.
+
+Aiheeseen liittyvä tieteellinen tutkimus on vähäistä ja tutkielman myötä herää monia tutkimuskysymyksiä tulevaisuuteen. Olisi mielenkiintoista selvittää vektorigrafiikoiden käytön osuus kaikissa videopeleissä. Entä miten vektorigrafiikoiden käyttö vaikuttaa pelin kehittämiseen käytettyyn aikaan ja budjettiin, tai lopullisen pelin tiedostokokoon ja suorituskykyyn? Tätä voitaisiin jatkossa tutkia esimerkiksi toteuttamalla samanlainen peli käyttäen sekä bittikarttagrafiikoita että vektorigrafiikoita ja vertailemalla käytettyjä työmääriä ja pelien suorituskykyjä. Tieteellinen tutkimus voisi tuoda lisää näkyvyyttä vektorigrafiikoiden käytölle videopeleissä ja mahdollisesti vähentää niihin liittyviä ennakkoluuloja.
+
+% Tieteellisen tutmikuksen avulla voitaisiin tehdä vektorigrafiikoita yhe edelleen näkyvämmäksi ja mrtaaa ennakkoluuloja ja siten tuoda lisää mahdollisuuksia pelinkehittämiseen.
 
 \printbibliography
 
